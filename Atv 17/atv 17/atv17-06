@@ -1,0 +1,110 @@
+import java.util.Scanner;
+  
+class Main {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        byte opc;
+        System.out.println("Escolha uma das opcoes abaixo:");
+        System.out.println("1: Calcular Salario \n" + "2: Verificar saldo \n" + "3: Media \n" + 
+        "4: Contar alunos por media \n" + "5. Sair programa \n");
+        System.out.print("Opcao escolhida:");
+        opc = entrada.nextByte();
+        
+    if(opc==1){
+        calculoSalario(entrada);
+    }
+    else if(opc==2){
+        verificarSaldo(entrada);
+    }
+    else if(opc==3){
+        mediaProduto();
+   }     
+    else if(opc==4){
+        contagemTurma();
+    } 
+    else if(opc==5){
+       System.out.print("Saindo do programa");
+    }  }
+    
+    public static void calculoSalario(Scanner entrada) {
+     System.out.print("Digite seu salario: ");
+     double salario = entrada.nextDouble();
+    
+    System.out.print("Informe o valor das vendas: ");
+    double vendas = entrada.nextDouble();
+    
+    if (vendas <= 1500){
+        double nv_salario = salario * 1.03;
+         System.out.println("Seu novo salario agora é este: " + nv_salario);
+    }else{
+        double nv_salario = salario * 1.08;
+         System.out.println("Seu novo salario agora é este: " + nv_salario);
+        
+    }
+    }
+    
+    public static void verificarSaldo(Scanner entrada) {
+        System.out.print("Digite o seu número de conta: ");
+        int conta_num = entrada.nextInt();
+        System.out.print("Informe o seu saldo: ");
+        double saldo = entrada.nextDouble();
+        System.out.print("Informe o seu debito: ");
+        double deb = entrada.nextDouble();
+        System.out.print("Informe o seu credito: ");
+        double cred = entrada.nextDouble();
+        
+        double saldo_atual = saldo - deb + cred;
+        
+        System.out.print("Este e o seu saldo atual: " + saldo_atual);
+    }
+    
+    public static void mediaProduto() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Informe o produto da qual deseja ver o estoque: ");
+        String produto = entrada.nextLine();
+        System.out.print("Digite a quantidade atual em estoque: ");
+        int stq = entrada.nextInt();
+        System.out.print("Digite o estoque máximo comportado: ");
+        int max_stq = entrada.nextInt();
+        System.out.print("Digite o mínimo do estoque de " + produto + ": ");
+        int min_stq = entrada.nextInt();
+        double media_stq = (max_stq + min_stq)/2;
+        System.out.println("A media de produtos no estoque é: " + media_stq);
+        if(stq>=media_stq){
+        System.out.println("Não efetuar compra.");
+        }else{
+            System.out.println("Efetuar a compra.");
+        }
+    }
+   public static void contagemTurma() {
+    Scanner entrada = new Scanner(System.in);
+    int ttal = 10;
+    String[] nome = new String[ttal];
+    double[] nota = new double[ttal];
+    double soma = 0;
+    
+    for (int i = 0; i < ttal; i++) {
+        System.out.print("Nome do aluno " + (i + 1) + ": ");
+        nome[i] = entrada.nextLine(); // Aqui lê o nome normalmente
+        
+        System.out.print("Nota do(a) " + nome[i] + ": ");
+        nota[i] = entrada.nextDouble();
+        
+        // 🔥 A SOLUÇÃO ESTÁ AQUI:
+        entrada.nextLine(); // Esse comando "consome" o Enter que sobrou do nextDouble() e limpa o teclado
+        
+        soma += nota[i];
+    }
+    
+    double media = soma / ttal;
+    System.out.println("\nA media da turma e: " + media);
+    
+    int maisMedia = 0;
+    for (int i = 0; i < ttal; i++) {
+        if (nota[i] > media) {
+            maisMedia++;
+        }
+    }
+    System.out.print("A quantidade de alunos que ficaram acima da media foi esta: " + maisMedia);
+}
+}
