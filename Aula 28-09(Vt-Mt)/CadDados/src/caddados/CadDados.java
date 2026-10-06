@@ -1,7 +1,7 @@
 package caddados;
 import javax.swing.JOptionPane;
 public class CadDados {
-
+    
     public static void main(String[] args) {
         int v[][]=new int [2][2];
         String st = "Digite 4 números: ";

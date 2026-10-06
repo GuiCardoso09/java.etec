@@ -12,16 +12,14 @@ public class AltDados {
     for(int i=0;i<2;i++){
         if(v[i]==n){
            st="Digite um novo número: ";
-           JOptionPane.showMessageDialog(null, st);
+           JOptionPane.showInputDialog(null, st);
            v[i]=Integer.parseInt(st);
         }
     else
         {st="Valor não encontrado";
-        JOptionPane.showMessageDialog(null, st);
+        JOptionPane.showInputDialog(null, st);
         }
-        System.exit(0);
+        System.exit(0);}
     }
-    
-    }
-    
 }
+

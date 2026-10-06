@@ -11,7 +11,7 @@ public class ExcDadosMat {
     n=Integer.parseInt(st);
     for (int i=0;i<2;i++){
     for (int j=0;j<2;j++){
-        if (v[i][i]==n){
+        if (v[i][j]==n){
             st="Valor encontrado";
             JOptionPane.showMessageDialog(null,st);
         }

@@ -16,7 +16,7 @@ public class ExcDados {
            }
            {
                st="Valor não encontrado";
-               JOptionPane.showMessageDialog(null, st);
+               JOptionPane.showInputDialog(null, st);
            }
        }
            System.exit(0);
